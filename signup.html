@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700&display=swap" rel="stylesheet"> 
+    <link rel="stylesheet" type="text/css" href="/static/signupcss.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  </head>
+  <body>
+    <img class="wave" src="/static/image/side3.png">
+	<div class="container1">
+		<div class="img">
+            <img class="img1" src="/static/image/signin.svg">
+	    </div>
+    </div>
+
+
+
+    <div class="login-content">
+    <div class="container">
+    <div class="login-div">
+      <div class="logo" style="border: 2px solid #0ef506"></div>
+
+
+      <div class="title"> Sign Up </div> 
+      <form action="signup" method="POST">
+        {% csrf_token %}
+        {{ form.as_p}}
+          <label>
+            <input type="text" placeholder="Create Username(use only letters and numbers) "  name="username"
+                   id="username" Required >
+         </label>
+
+          <label>
+            <input type="text" placeholder="Enter Your First Name "  name="firstname" id="firstname" Required>
+          </label>
+
+          <label>
+            <input type="text" placeholder="Enter Your Last Name "  name="lastname" id="lastname" Required>
+          </label>
+
+          <label>
+            <input type="text" placeholder="Enter Your Email Address " name="email"  id="email" Required>
+          </label>
+
+          <label>
+           <span class="eye" onclick="myfunc()">
+            <i id="hide1" class="fa fa-eye"></i>
+            <i id="hide2" class="fa fa-eye-slash"></i>
+           </span>
+            <input type="password"  placeholder="Enter Your Password" id="pass1" name="pass1" Required>
+          </label>
+
+          <label>
+          <span class="eye" onclick="myfunc1()">
+            <i id="hide22" class="fa fa-eye-slash"></i>
+            <i id="hide11" class="fa fa-eye"></i>
+          </span>  
+           <input type="password"  placeholder="Confirm Your Password" id="pass2" name="pass2" Required>
+          </label>
+
+          <button class="red" type="submit">
+            <i class="icon fa fa-sign-in"></i>
+            Sign Up
+          </button>
+
+          <div class="para">
+            <p> Already  Have  An Account? <a href="/login" > Log In </a></p>
+          </div>
+
+      </form>
+    </div>
+    </div>
+    </div>
+
+
+    <script>
+      function myfunc(){
+        var x = document.getElementById("pass1");
+        var y = document.getElementById("hide1");
+        var z = document.getElementById("hide2");
+    
+        if(x.type === 'password'){
+          x.type = "text";
+          y.style.display = "block";
+          z.style.display = "none";
+        }
+        else{
+          x.type = "password";
+          y.style.display = "none";
+          z.style.display = "block";
+        }
+      }
+    
+      function myfunc1(){
+        var x = document.getElementById("pass2");
+        var y = document.getElementById("hide11");
+        var z = document.getElementById("hide22");
+    
+        if(x.type === 'password'){
+          x.type = "text";
+          y.style.display = "block";
+          z.style.display = "none";
+        }
+        else{
+          x.type = "password";
+          y.style.display = "none";
+          z.style.display = "block";
+        }
+      }
+      </script>
+      
+  </body>
+</html>
